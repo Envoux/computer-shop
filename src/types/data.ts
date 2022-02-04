@@ -1,13 +1,13 @@
-export type BasicData = {
+export interface BasicData {
   id: number;
   name: string;
   description: string;
   price: number;
-};
+}
 
-export type Data = BasicData & {
+export interface Data extends BasicData {
   details?: {
     cpu?: number;
     ram?: number;
   };
-};
+}

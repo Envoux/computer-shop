@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Data } from '../../../types/data';
+import { Data } from '../../../src/types/data';
 import fs from 'fs';
-import { ApiResponse } from '../../../types/apiResponse';
+import { ApiResponse } from '../../../src/types/apiResponse';
 
 const handler = (
   req: NextApiRequest,

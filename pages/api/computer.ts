@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { BasicData, Data } from '../../types/data';
+import { BasicData, Data } from '../../src/types/data';
 import fs from 'fs';
-import { ApiResponse } from '../../types/apiResponse';
+import { ApiResponse } from '../../src/types/apiResponse';
 
 const handler = (
   req: NextApiRequest,
@@ -18,7 +18,9 @@ const handler = (
         price: item.price,
       }))
     );
-  } else if (req.method === 'POST') {
+    return;
+  }
+  if (req.method === 'POST') {
     const data: Data = req.body;
     if (data.name && data.description && data.price) {
       data.id = computers.length;

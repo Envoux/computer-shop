@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
-import { Data } from '../../types/data';
+import { Data } from '../../src/types/data';
 
 interface ComputerDetailsProps {
   data: Data;
