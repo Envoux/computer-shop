@@ -1,42 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { BasicData, Data } from '../../types/data';
 import fs from 'fs';
-
-// const computers: Data[] = [
-//   {
-//     id: 1,
-//     name: 'ASUS',
-//     description: 'Laptop do biura',
-//     price: 1000,
-//     details: {
-//       ram: '8 GB',
-//     },
-//   },
-//   {
-//     id: 2,
-//     name: 'Lenovo',
-//     description: 'Laptop do pracy',
-//     price: 2000,
-//     details: {
-//       cpu: '2.8 GHz',
-//       ram: '16 GB',
-//     },
-//   },
-//   {
-//     id: 3,
-//     name: 'Acer',
-//     description: 'Laptop do gier',
-//     price: 3000,
-//     details: {
-//       cpu: '3.2 GHz',
-//       ram: '16 GB',
-//     },
-//   },
-// ];
+import { ApiResponse } from '../../types/apiResponse';
 
 const handler = (
   req: NextApiRequest,
-  res: NextApiResponse<Data[] | { message: string }>
+  res: NextApiResponse<Data[] | ApiResponse>
 ) => {
   const file = fs.readFileSync('./data/computers.json');
   const computers: Data[] = JSON.parse(file.toString());

@@ -7,11 +7,12 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import Link from 'next/link';
 import { BasicData } from '../../types/data';
+import { CardStyles } from './card.styles';
 
 const Card: React.FC<BasicData> = (props) => {
   const { id, name, description, price } = props;
   return (
-    <div style={{ margin: 30 }}>
+    <CardStyles.Container>
       <MaterialCard sx={{ width: 300 }}>
         <CardContent>
           <Typography variant='h5' component='div'>
@@ -28,7 +29,7 @@ const Card: React.FC<BasicData> = (props) => {
           </Link>
         </CardActions>
       </MaterialCard>
-    </div>
+    </CardStyles.Container>
   );
 };
 

@@ -1,10 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Data } from '../../../types/data';
 import fs from 'fs';
+import { ApiResponse } from '../../../types/apiResponse';
 
 const handler = (
   req: NextApiRequest,
-  res: NextApiResponse<Data | { message: string }>
+  res: NextApiResponse<Data | ApiResponse>
 ) => {
   if (req.method === 'GET') {
     const file = fs.readFileSync('./data/computers.json');
