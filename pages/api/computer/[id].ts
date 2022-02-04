@@ -1,15 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Data } from '../../../src/types/data';
 import fs from 'fs';
+
+import { Computer } from '../../../src/types/data';
 import { ApiResponse } from '../../../src/types/apiResponse';
 
 const handler = (
   req: NextApiRequest,
-  res: NextApiResponse<Data | ApiResponse>
+  res: NextApiResponse<Computer | ApiResponse>
 ) => {
   if (req.method === 'GET') {
     const file = fs.readFileSync('./data/computers.json');
-    const computers: Data[] = JSON.parse(file.toString());
+    const computers: Computer[] = JSON.parse(file.toString());
     const id = Number(req.query.id);
 
     if (!isNaN(id) && id >= 0 && id < computers.length)

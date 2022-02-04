@@ -26,6 +26,7 @@ const AddComputer = () => {
       });
     },
   });
+
   return (
     <div style={{ width: 600, margin: '50px auto' }}>
       <form onSubmit={formik.handleSubmit}>

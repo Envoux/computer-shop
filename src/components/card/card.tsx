@@ -4,13 +4,16 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+
 import React from 'react';
 import Link from 'next/link';
-import { BasicData } from '../../types/data';
+
+import { ComputerBasicInfo } from '../../types/data';
 import { CardStyles } from './card.styles';
 
-const Card: React.FC<BasicData> = (props) => {
+const Card: React.FC<ComputerBasicInfo> = (props) => {
   const { id, name, description, price } = props;
+
   return (
     <CardStyles.Container>
       <MaterialCard sx={{ width: 300 }}>

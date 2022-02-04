@@ -8,14 +8,16 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
-import { Data } from '../../src/types/data';
+
+import { Computer } from '../../src/types/data';
 
 interface ComputerDetailsProps {
-  data: Data;
+  computer: Computer;
 }
 
 const ComputerDetails: React.FC<ComputerDetailsProps> = (props) => {
-  const { id, name, description, price, details } = props.data;
+  const { id, name, description, price, details } = props.computer;
+
   return (
     <div style={{ width: 800, margin: '50px auto' }}>
       <TableContainer>
@@ -65,10 +67,10 @@ export async function getStaticProps(context: any) {
     }
   );
 
-  const data: Data[] = await response.data;
+  const data: Computer[] = await response.data;
 
   return {
-    props: { data },
+    props: { computer: data },
   };
 }
 export default ComputerDetails;

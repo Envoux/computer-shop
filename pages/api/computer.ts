@@ -1,17 +1,19 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { BasicData, Data } from '../../src/types/data';
 import fs from 'fs';
+
+import { ComputerBasicInfo, Computer } from '../../src/types/data';
 import { ApiResponse } from '../../src/types/apiResponse';
 
 const handler = (
   req: NextApiRequest,
-  res: NextApiResponse<Data[] | ApiResponse>
+  res: NextApiResponse<Computer[] | ApiResponse>
 ) => {
   const file = fs.readFileSync('./data/computers.json');
-  const computers: Data[] = JSON.parse(file.toString());
+  const computers: Computer[] = JSON.parse(file.toString());
+
   if (req.method === 'GET') {
     res.status(200).json(
-      computers.map<BasicData>((item) => ({
+      computers.map<ComputerBasicInfo>((item) => ({
         id: item.id,
         name: item.name,
         description: item.description,
@@ -20,8 +22,10 @@ const handler = (
     );
     return;
   }
+
   if (req.method === 'POST') {
-    const data: Data = req.body;
+    const data: Computer = req.body;
+
     if (data.name && data.description && data.price) {
       data.id = computers.length;
       computers.push(data);

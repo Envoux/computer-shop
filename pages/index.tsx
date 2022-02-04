@@ -3,16 +3,18 @@ import axios from 'axios';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import Card from '../src/components/card/card';
-import styles from '../src/styles/Home.module.css';
-import { BasicData } from '../src/types/data';
 
+import Card from '../src/components/card/card';
+import { ComputerBasicInfo } from '../src/types/data';
+
+import styles from '../src/styles/Home.module.css';
 interface HomeProps {
-  computers: BasicData[];
+  computers: ComputerBasicInfo[];
 }
 
 const Home: NextPage<HomeProps> = (props) => {
   const { computers } = props;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -43,10 +45,10 @@ export async function getStaticProps() {
     headers: { 'Content-Type': 'application/json' },
   });
 
-  const data: BasicData[] = await response.data;
+  const computers: ComputerBasicInfo[] = await response.data;
 
   return {
-    props: { computers: data },
+    props: { computers: computers },
   };
 }
 
