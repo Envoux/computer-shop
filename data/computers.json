@@ -1,0 +1,23 @@
+[
+  {
+    "name": "ASUS",
+    "description": "Laptop do biura",
+    "price": 1000,
+    "details": { "cpu": "", "ram": 8 },
+    "id": 0
+  },
+  {
+    "name": "Lenovo",
+    "description": "Laptop do pracy",
+    "price": 2000,
+    "details": { "cpu": "2.8", "ram": 16 },
+    "id": 1
+  },
+  {
+    "name": "Acer",
+    "description": "Laptop do gier",
+    "price": 3000,
+    "details": { "cpu": "3.2", "ram": 16 },
+    "id": 2
+  }
+]
